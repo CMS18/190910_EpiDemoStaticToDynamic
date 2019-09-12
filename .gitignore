@@ -340,4 +340,5 @@ ASALocalRun/
 healthchecksdb
 
 # Project - ignore changes to connection string
-connectionStrings.config
+Demo1/connectionStrings.config
+Demo1/App_Data/blobs

@@ -1,0 +1,44 @@
+﻿@model Demo1.Models.Pages.StandardPage
+@{
+    Layout = "~/Views/Shared/Layouts/_Root.cshtml";
+    ViewData["BodyClass"] = "single";
+}
+<!-- Main -->
+<div id="main">
+    <!-- Post -->
+    <article class="post">
+        <header>
+            <div class="title">
+                <h2 @Html.EditAttributes(m => m.Name)><a href="#">@Model.Name</a></h2>
+                <p>@Html.PropertyFor(m => m.MainIntro)</p>
+            </div>
+            <div class="meta">
+                <time class="published" datetime="2015-11-01">@Model.StartPublish</time>
+                <a href="#" class="author"><span class="name">Jane Doe</span><img src="/Static/images/avatar.jpg" alt="" /></a>
+            </div>
+        </header>
+        <span class="image featured"><img src="@Url.ContentUrl(Model.MainImage)" alt="" /></span>
+        @Html.PropertyFor(m => m.MainBody)
+        <footer>
+            <ul class="stats">
+                <li><a href="#">General</a></li>
+                <li><a href="#" class="icon solid fa-heart">28</a></li>
+                <li><a href="#" class="icon solid fa-comment">128</a></li>
+            </ul>
+        </footer>
+    </article>
+
+    <hr />
+
+    <h1>Debug av IContentData.Property</h1>
+    <dl>
+    @{ foreach (EPiServer.Core.PropertyData item in Model.Property)
+       {
+       <dt>@item.Name</dt>
+       <dd>@item.Value</dd>
+       }
+
+    }
+    </dl>
+
+</div>
